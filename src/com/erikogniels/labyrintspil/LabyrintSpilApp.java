@@ -59,9 +59,12 @@ public class LabyrintSpilApp extends GameApplication {
                 .with(new CollidableComponent(true))
                .buildAndAttach(getGameWorld());
 
+        // ANAC Lav en arrayNoWalls, som indeholder alle de tiles, hvor der IKKE skal sættes WALL
+        
         // fylder et område ud med rektangler
         for (int y = 65, arrayY = 0; y < 680; y = y + 31, arrayY++) {
             for (int x = 9, arrayX = 0; x < 680; x = x + 31, arrayX++) {
+             // ANAC if arrayNoWalls[x][y] than don't create wall
              wall[arrayX][arrayY] =  Entities.builder()
                         .type(EntityType.WALL)
                         .at(x, y)
